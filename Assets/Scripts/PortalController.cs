@@ -12,14 +12,24 @@ public class PortalController : MonoBehaviour
     public bool IsOpen { get; private set; }
 
     Animator animator;
+    bool initiated;
     bool isOpening;
     bool isClosing;
 
     private void Awake()
     {
+        Init();
+    }
+
+    void Init()
+    {
+        if (initiated)
+            return;
+
         animator = GetComponent<Animator>();
         mask.SetActive(false);
         leaveCollider.SetActive(false);
+        initiated = true;
     }
 
     private void Update()
@@ -48,6 +58,7 @@ public class PortalController : MonoBehaviour
 
     public void OpenInstant()
     {
+        Init();
         animator.SetBool("IsOpen", true);
         animator.SetTrigger("OpenInstant");
         IsOpen = true;
