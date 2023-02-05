@@ -1,0 +1,6 @@
+RootEnding.png
+size:118,336
+filter:Linear,Linear
+pma:true
+RootEndingYellow
+bounds:2,2,114,332

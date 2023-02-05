@@ -1,0 +1,14 @@
+Bubble.png
+size:243,217
+filter:Linear,Linear
+pma:true
+Bubble
+bounds:2,43,173,172
+BubblePiece
+bounds:2,2,39,40
+offsets:1,1,41,42
+rotate:90
+BubbleShadow
+bounds:177,14,201,64
+offsets:4,4,209,72
+rotate:90

@@ -46,6 +46,15 @@ public class PortalController : MonoBehaviour
         mask.SetActive(true);
     }
 
+    public void OpenInstant()
+    {
+        animator.SetBool("IsOpen", true);
+        animator.SetTrigger("OpenInstant");
+        IsOpen = true;
+        mask.SetActive(true);
+        leaveCollider.SetActive(true);
+    }
+
     public void Close()
     {
         animator.SetBool("IsOpen", false);

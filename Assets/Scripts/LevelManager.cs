@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -26,7 +27,10 @@ public class LevelManager : MonoBehaviour
 
         waterProgress.value = 0f;
         waterProgress.maxValue = waterRequired;
+    }
 
+    private void Start()
+    {
         StartCoroutine(EnterLevel());
     }
 
@@ -44,16 +48,13 @@ public class LevelManager : MonoBehaviour
         yield return new WaitWhile(() => character.IsLanding);
 
         portal.Close();
-
-        yield return new WaitWhile(() => portal.IsOpen);
-
         IsCutscene = false;
     }
 
     public void CollectWater()
     {
         waterCollected++;
-        waterProgress.value = (float)waterCollected / waterRequired;
+        waterProgress.value = waterCollected;
         if (waterCollected >= waterRequired)
         {
             portal.Open();
@@ -79,5 +80,7 @@ public class LevelManager : MonoBehaviour
         yield return new WaitWhile(() => portal.IsOpen);
 
         IsCutscene = false;
+
+        SceneManager.LoadScene(0);
     }
 }
